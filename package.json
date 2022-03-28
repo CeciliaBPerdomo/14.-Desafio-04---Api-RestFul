@@ -1,0 +1,22 @@
+{
+  "type": "module",
+  "name": "14.-desafio-04---api-restful",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CeciliaBPerdomo/14.-Desafio-04---Api-RestFul.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CeciliaBPerdomo/14.-Desafio-04---Api-RestFul/issues"
+  },
+  "homepage": "https://github.com/CeciliaBPerdomo/14.-Desafio-04---Api-RestFul#readme"
+}
