@@ -1,0 +1,6 @@
+Dudas:
+
+1) Id automatico al guardar
+
+2) Se puede: app.use('/api/productos', routerProductos)
+routerProductos.get('/:id', (req, res) => {
