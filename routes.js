@@ -1,5 +1,5 @@
 import express from 'express'
-const app = express()
+//const app = express()
 const routerProductos = express.Router()
 
 const productos = [
@@ -32,23 +32,36 @@ routerProductos.get('/', (req, res) => {
 // Devuelve un producto según su id.
 routerProductos.get('/:id', (req, res) => {
     const { id } = req.params
-    let prodId = productos.filter(productos => productos.id === id)
+    let prodId = productos.filter(productos => productos.id === parseInt(id))
     res.send(prodId)
 })
 
 // recibe y actualiza un producto según su id.
 routerProductos.put('/:id', (req, res) => {
-    const { prod } = req.body
+    const { prodNuevo } = req.body
     const { id } = req.params
-    const anterior = productos[parseInt(id) - 1]
-    productos[parseInt(id) - 1] = prod
-    res.json({Actualizada: productos[parseInt(id) - 1], Anterior: anterior})
+
+    const index = productos.filter(prod => prod.id === parseInt(id))
+
+    if (prodNuevo.nombre) {
+        productos[index].nombre = prodNuevo.nombre
+    }
+
+    if (prodNuevo.precio) {
+        productos[index].precio = prodNuevo.precio
+    }
+
+    if (prodNuevo.thumbnail) {
+        productos[index].thumbnail = prodNuevo.thumbnail
+    }
+
+    res.send(prodNuevo)
 })
 
 // elimina un producto según su id.
 routerProductos.delete('/:id', (req, res) => {
     const { id } = req.params
-    prodId = productos.filter(productos => productos.id !== id)
+    let prodId = productos.filter(productos => productos.id !== parseInt(id))
     res.send(prodId)
 })
 
