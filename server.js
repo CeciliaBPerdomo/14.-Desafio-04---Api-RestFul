@@ -6,10 +6,11 @@ import express from 'express'
 import routes from './routes.js'
 
 const app = express()
-app.use('/productos', routes)
+
+app.use(express.static('public'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(express.static('public'))
+app.use('/productos', routes)
 
 /* ---- Server Listen ----- */
 const PORT = 8080

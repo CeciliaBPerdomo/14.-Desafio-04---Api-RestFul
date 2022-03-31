@@ -19,7 +19,6 @@ const productos = [
 
 // recibe y agrega un producto, y lo devuelve con su id asignado.
 routerProductos.post('/guardar', (req, res) => {
-    let prod = req.body
     prod.id = productos[productos.length - 1].id + 1
     productos.push(req.body)
     res.json(productos)
@@ -47,7 +46,7 @@ routerProductos.put('/:id', (req, res) => {
 })
 
 // elimina un producto según su id.
-app.delete(':id', (req, res) => {
+routerProductos.delete('/:id', (req, res) => {
     const { id } = req.params
     prodId = productos.filter(productos => productos.id !== id)
     res.send(prodId)
