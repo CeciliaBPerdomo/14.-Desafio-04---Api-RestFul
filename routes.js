@@ -19,6 +19,7 @@ const productos = [
 
 // recibe y agrega un producto, y lo devuelve con su id asignado.
 routerProductos.post('/guardar', (req, res) => {
+    let prod = req.body
     prod.id = productos[productos.length - 1].id + 1
     productos.push(req.body)
     res.json(productos)
@@ -38,10 +39,10 @@ routerProductos.get('/:id', (req, res) => {
 
 // recibe y actualiza un producto según su id.
 routerProductos.put('/:id', (req, res) => {
-    const { prodNuevo } = req.body
+    let prodNuevo = req.body
     const { id } = req.params
 
-    const index = productos.filter(prod => prod.id === parseInt(id))
+    const index = productos.find(prod => prod.id === parseInt(id))
 
     if (prodNuevo.nombre) {
         productos[index].nombre = prodNuevo.nombre
