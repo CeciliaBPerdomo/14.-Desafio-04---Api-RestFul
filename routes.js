@@ -45,15 +45,15 @@ routerProductos.put('/:id', (req, res) => {
     const index = productos.find(prod => prod.id === parseInt(id))
 
     if (prodNuevo.nombre) {
-        productos[index].nombre = prodNuevo.nombre
+        index.nombre = prodNuevo.nombre
     }
 
     if (prodNuevo.precio) {
-        productos[index].precio = prodNuevo.precio
+        index.precio = prodNuevo.precio
     }
 
     if (prodNuevo.thumbnail) {
-        productos[index].thumbnail = prodNuevo.thumbnail
+        index.thumbnail = prodNuevo.thumbnail
     }
 
     res.send(prodNuevo)
